@@ -2,12 +2,14 @@ import { View, Text, StyleSheet, Animated, TextInput, TouchableOpacity } from 'r
 import { useState, useEffect, useRef } from 'react';
 import Svg, { Circle, Line, G } from 'react-native-svg';
 import { Path } from 'react-native-svg';
+import { MaterialIcons } from '@expo/vector-icons';
 const AnimatedG = Animated.createAnimatedComponent(G);
 
 export default function LoadingScreen() {
     const [timeLeft, setTimeLeft] = useState(24 * 60 * 60);
     const rotateAnim = useRef(new Animated.Value(0)).current;
     const [email, setEmail] = useState('');
+    const [isSubmitted, setIsSubmitted] = useState(false);
   
     useEffect(() => {
       const startRotation = () => {
@@ -110,12 +112,20 @@ export default function LoadingScreen() {
           <TouchableOpacity 
             style={styles.button}
             onPress={() => {
+              setIsSubmitted(true);
               // Handle email submission here
               console.log('Email submitted:', email);
             }}
           >
             <Text style={styles.buttonText}>Get Updates</Text>
           </TouchableOpacity>
+
+          {isSubmitted && (
+            <View style={styles.confirmation}>
+              <Text style={styles.confirmationText}>{email}</Text>
+              <MaterialIcons name="check-circle" size={24} color="#00A86B" />
+            </View>
+          )}
         </View>
       </View>
     );
@@ -169,5 +179,16 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  confirmation: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 15,
+    gap: 10,
+  },
+  confirmationText: {
+    fontSize: 18,
+    color: '#00A86B',
   },
 });

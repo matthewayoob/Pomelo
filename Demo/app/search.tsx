@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function Next() {
+export default function Search() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome to Pomelo! 🎉</Text>

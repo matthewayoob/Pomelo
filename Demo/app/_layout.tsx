@@ -10,7 +10,7 @@ export default function RootLayout() {
         }}
       />
       <Stack.Screen
-        name="next"
+        name="search"
         options={{
           headerShown: false,
         }}

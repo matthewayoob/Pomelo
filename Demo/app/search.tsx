@@ -6,6 +6,7 @@ export default function Search() {
     <View style={styles.container}>
       <Text style={styles.text}>Welcome to Pomelo! 🎉</Text>
     </View>
+    
   );
 }
 

@@ -7,7 +7,7 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Pomelo</Text>
+      <Text style={styles.title}>Pomelo.</Text>
       {/* Tagline */}
       <Text style={styles.tagline}>The Common App for Government Funding.</Text>
 
@@ -31,21 +31,21 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 48,
+    fontSize: 72,
     fontWeight: 'bold',
-    color: '#FF8C42',
+    color: '#006400',
     marginBottom: 10,
     textAlign: 'center',
   },
   tagline: {
     fontSize: 28,
     fontWeight: '600',
-    color: '#FF8C42',
+    color: '#333333',
     marginVertical: 20,
     textAlign: 'center',
   },
   button: {
-    backgroundColor: '#FF8C42',
+    backgroundColor: '#004225',
     paddingVertical: 15,
     paddingHorizontal: 40,
     borderRadius: 30,

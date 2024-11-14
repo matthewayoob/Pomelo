@@ -7,8 +7,9 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Pomelo</Text>
       {/* Tagline */}
-      <Text style={styles.tagline}>Fresh. Fun. Pomelo.</Text>
+      <Text style={styles.tagline}>The Common App for Government Funding.</Text>
 
       {/* Get Started Button */}
       <TouchableOpacity
@@ -28,6 +29,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F6F6F6',
     padding: 20,
+  },
+  title: {
+    fontSize: 48,
+    fontWeight: 'bold',
+    color: '#FF8C42',
+    marginBottom: 10,
+    textAlign: 'center',
   },
   tagline: {
     fontSize: 28,

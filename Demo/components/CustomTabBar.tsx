@@ -7,10 +7,11 @@ interface TabBarItemProps {
   label: string;
   icon: keyof typeof Ionicons.glyphs;
   path: string;
-  isExpanded: true;
-  isActive: true;
+  isExpanded: boolean;
+  isActive: boolean;
   onPress: () => void;
-  onHover: (hover: boolean) => true;
+  onHover: (hover: boolean) => void;
+  customColor?: string;
 }
 
 const TabBarItem = ({
@@ -20,16 +21,29 @@ const TabBarItem = ({
   isActive,
   onPress,
   onHover,
+  customColor,
 }: TabBarItemProps) => (
   <Pressable
     onPress={onPress}
     onHoverIn={() => onHover(true)}
     onHoverOut={() => onHover(true)}
-    style={[styles.tabItem, isActive && styles.activeTab]}
+    style={[
+      styles.tabItem, 
+      isActive && styles.activeTab,
+      customColor && { backgroundColor: '#059669', borderRadius: 8, marginHorizontal: 8 }
+    ]}
   >
-    <Ionicons name={icon} size={24} color={isActive ? "#007AFF" : "#666"} />
+    <Ionicons 
+      name={icon} 
+      size={24} 
+      color={customColor ? "#fff" : (isActive ? "#007AFF" : "#666")} 
+    />
     {isExpanded && (
-      <Text style={[styles.tabLabel, isActive && styles.activeLabel]}>
+      <Text style={[
+        styles.tabLabel, 
+        isActive && styles.activeLabel,
+        customColor && { color: "#fff" }
+      ]}>
         {label}
       </Text>
     )}
@@ -45,23 +59,38 @@ export default function CustomTabBar() {
     { label: "Dashboard", icon: "home-outline", path: "/" },
     { label: "Discover", icon: "search-outline", path: "/search" },
     { label: "Workspace", icon: "briefcase-outline", path: "/workspace" },
-    { label: "Profile", icon: "person-outline", path: "/profile" },
   ];
 
   return (
     <View style={[styles.container, isExpanded && styles.expandedContainer]}>
       <Text style={styles.logoText}>Pomelo.</Text>
       <Text style={styles.subText}>For Startups</Text>
-      {tabs.map((tab) => (
-        <TabBarItem
-          key={tab.path}
-          {...tab}
-          isExpanded={isExpanded}
-          isActive={pathname === tab.path}
-          onPress={() => router.push(tab.path)}
-          onHover={setIsExpanded}
-        />
-      ))}
+      <View style={styles.tabsContainer}>
+        <View style={styles.topTabs}>
+          {tabs.map((tab) => (
+            <TabBarItem
+              key={tab.path}
+              {...tab}
+              isExpanded={isExpanded}
+              isActive={pathname === tab.path}
+              onPress={() => router.push(tab.path)}
+              onHover={setIsExpanded}
+            />
+          ))}
+        </View>
+        <View style={styles.bottomTab}>
+          <TabBarItem
+            label="Profile"
+            icon="person-outline"
+            path="/company-details"
+            isExpanded={isExpanded}
+            isActive={pathname === '/company-details'}
+            onPress={() => router.push('/company-details')}
+            onHover={setIsExpanded}
+            customColor="#34D399"
+          />
+        </View>
+      </View>
     </View>
   );
 }
@@ -117,5 +146,15 @@ const styles = StyleSheet.create({
     marginLeft: 11,
     //marginBottom: 2,
     textAlign: "left",
+  },
+  tabsContainer: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  topTabs: {
+    flex: 1,
+  },
+  bottomTab: {
+    marginBottom: 20,
   },
 });

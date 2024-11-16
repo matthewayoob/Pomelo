@@ -12,6 +12,10 @@ export default function Dashboard() {
 
   const router = useRouter();
 
+  const handleCompanyPress = () => {
+    router.push('/company-details'); // This will navigate to /app/company-details.tsx
+  };
+
   return (
     <View style={styles(height).container}>
       <View style={styles(height).searchContainer}>
@@ -20,12 +24,16 @@ export default function Dashboard() {
           placeholder="Search..."
           placeholderTextColor="#666"
         />
-        <Text>Company</Text>
-        <View style={styles(height).profileContainer}>
-          <Ionicons name="person" size={30} color="#000" />
-        </View>
+        <TouchableOpacity 
+          style={styles(height).companyButton} 
+          onPress={handleCompanyPress}
+        >
+          <Text style={styles(height).companyText}>Company</Text>
+          <View style={styles(height).profileContainer}>
+            <Ionicons name="person" size={30} color="#000" />
+          </View>
+        </TouchableOpacity>
       </View>
-     
     </View>   
   );
 }
@@ -68,7 +76,6 @@ const styles = (height: number) => StyleSheet.create({
     width: height * .04,
   },
 
-
   title: {
     fontSize: 72,
     fontWeight: 'bold',
@@ -94,5 +101,15 @@ const styles = (height: number) => StyleSheet.create({
     color: '#FFF',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  companyButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    cursor: 'pointer',
+  },
+  companyText: {
+    marginRight: 10,
+    fontSize: 16,
   },
 });

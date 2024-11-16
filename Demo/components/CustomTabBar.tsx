@@ -45,6 +45,7 @@ export default function CustomTabBar() {
     { label: "Dashboard", icon: "home-outline", path: "/" },
     { label: "Discover", icon: "search-outline", path: "/search" },
     { label: "Workspace", icon: "briefcase-outline", path: "/workspace" },
+    { label: "Profile", icon: "person-outline", path: "/profile" },
   ];
 
   return (
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     color: "#666",
     marginLeft: 11,
     //padding: 12,
-    paddingLeft: 12,
+    paddingLeft: 6,
     textAlign: "left",
     paddingBottom: 12,
   },
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: "600",
     color: "#333",
-    paddingLeft: 12,
+    paddingLeft: 6,
     paddingTop: 12,
     marginLeft: 11,
     //marginBottom: 2,

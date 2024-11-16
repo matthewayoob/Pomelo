@@ -17,6 +17,7 @@ export default function RootLayout() {
           <Tabs.Screen name="index" />
           <Tabs.Screen name="search/index" />
           <Tabs.Screen name="workspace/index" />
+          <Tabs.Screen name="company-details" />
         </Tabs>
       </View>
     </View>

@@ -109,6 +109,7 @@ const styles = (height: number) => StyleSheet.create({
     cursor: 'pointer',
   },
   companyText: {
+    paddingLeft: 20,
     marginRight: 10,
     fontSize: 16,
   },

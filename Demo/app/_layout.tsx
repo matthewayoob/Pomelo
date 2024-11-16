@@ -30,9 +30,10 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    marginLeft: 60, // Width of collapsed sidebar
+    marginLeft: 200,
+    width: 'calc(100% - 200px)',
   },
   scene: {
-    padding: 20, // Add some padding to the content
+    padding: 20,
   },
 });

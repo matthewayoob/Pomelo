@@ -50,6 +50,7 @@ export default function CustomTabBar() {
   return (
     <View style={[styles.container, isExpanded && styles.expandedContainer]}>
       <Text style={styles.logoText}>Pomelo.</Text>
+      <Text style={styles.subText}>For Startups</Text>
       {tabs.map((tab) => (
         <TabBarItem
           key={tab.path}
@@ -86,6 +87,15 @@ const styles = StyleSheet.create({
     gap: 12,
     cursor: "pointer",
   },
+  subText: {
+    fontSize: 18,
+    color: "#666",
+    marginLeft: 11,
+    //padding: 12,
+    paddingLeft: 12,
+    textAlign: "left",
+    paddingBottom: 12,
+  },
   activeTab: {
     backgroundColor: "transparent",
   },
@@ -98,11 +108,13 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   logoText: {
-    fontSize: 18,
+    fontSize: 26,
     fontWeight: "600",
     color: "#333",
-    padding: 16,
-    marginBottom: 20,
-    textAlign: "center",
+    paddingLeft: 12,
+    paddingTop: 12,
+    marginLeft: 11,
+    //marginBottom: 2,
+    textAlign: "left",
   },
 });
